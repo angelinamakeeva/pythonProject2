@@ -27,3 +27,37 @@ words = len(TextBlob(text).words)
 sentences = sent_count(text)[0]
 total_words = sent_count(text)[1]
 total_len_by_words = total_words / sentences
+
+for i in TextBlob(text).words:
+  counter = 0
+  for k in range (len(i)):
+    if i[k] in glas or i[k] in glasen:
+      counter+=1
+  slogi += counter
+
+total_len_by_slogi = slogi / total_words
+
+print('Предложений: ', sentences)
+print('Слов: ', words)
+print('Слогов: ', slogi)
+print('Средняя длина предложения в словах: ', total_len_by_words)
+print('Средняя длина слова в слогах: ', total_len_by_slogi)
+flash_ru = 206.835 - (1.3*(words/sentences))-(60.1*(slogi/words))
+print('Индекс удобочитаемости Флеша: ', flash_ru)
+
+if flash_ru > 80.0 :
+  print("Текст очень легко читается (для младших школьников).")
+if flash_ru > 50.0 and flash_ru < 80.0 :
+  print("Простой текст(для школьников).")
+if flash_ru > 25.0 and flash_ru < 50.0 :
+  print("Текст немного трудно читать (для студентов).")
+if flash_ru <= 25.0 :
+  print("Текст трудно читается (для выпускников ВУЗов).")
+
+pol = textblob.polarity
+if pol  == 0.0  or pol < 0.3:
+  print("Тональность текста: ",'нейтральная')
+if pol < 0.0 :
+  print("Тональность текста: ",'негативная')
+if pol > 0.3 :
+  print("Тональность текста: ",'позитивная')
