@@ -1,4 +1,4 @@
-#Makeeva Angelina 85%
+#Makeeva Angelina 90%
 #Kareva Alena 70%
 #Osokina Anastasya 80%
 
