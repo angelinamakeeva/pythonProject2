@@ -1,4 +1,4 @@
-#Makeeva Angelina 90%
+#Makeeva Angelina 85%
 #Kareva Alena 70%
 #Osokina Anastasya 80%
 
@@ -85,3 +85,15 @@ else:
     print(ru.difficult)
   if flash_ru <= 25.0 :
     print(ru.hard)
+
+
+pol = textblob.polarity
+if pol  == 0.0  or pol < 0.3:
+  print(ru.tonality, ru.neutral)
+if pol < 0.0 :
+  print(ru.tonality,ru.negative)
+if pol > 0.3 :
+  print(ru.tonality,ru.positive)
+
+sub = textblob.subjectivity
+print(ru.objectivity, round(100 - sub*100),'%', sep='')
